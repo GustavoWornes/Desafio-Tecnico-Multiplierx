@@ -12,7 +12,6 @@ cron.schedule("* 6 * * *",async ()=>{
                 const teste = await axios.post('http://localhost:3001/categorias',data[i])
             }
         }
-        
         return 
        } catch (error) {
         return error
