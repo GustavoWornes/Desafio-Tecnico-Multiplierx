@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cron = require('node-cron');
-
+const IntegracaoCategorias =() => {
+    
 cron.schedule("* 6 * * *",async ()=>{
     try {
         console.log("teste")
@@ -23,8 +24,10 @@ cron.schedule("* 6 * * *",async ()=>{
        }
 } );
 
+}
 
-
+const IntegracaoProdutos =()=>{
+    
 cron.schedule("5 6 * * *",async ()=>{
     try {
         const {data} = await axios.get('http://localhost:3000/produtos')
@@ -42,3 +45,8 @@ cron.schedule("5 6 * * *",async ()=>{
         return error
     }
 } );
+}
+
+module.exports = {
+    IntegracaoProdutos,IntegracaoCategorias
+}
